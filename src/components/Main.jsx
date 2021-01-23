@@ -4,7 +4,7 @@ import React, { useState, useLayoutEffect } from "react";
 
 import { TopLeft, TopRight } from "./Navbar/NavbarElements";
 import Sidebar from "./Sidebar/Sidebar";
-import Table from "./Table";
+import POList from "./POList/POList";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,17 +15,17 @@ const useStyles = makeStyles((theme) => ({
   item1: {
     backgroundColor: "#38414a",
     color: "#fff",
-    height: "15%",
+    height: "10%",
     padding: 10,
   },
   item2: {
-    height: "15%",
+    height: "10%",
   },
   item3: {
-    height: "85%",
+    height: "90%",
   },
   item4: {
-    height: "85%",
+    height: "90%",
   },
 }));
 
@@ -89,7 +89,7 @@ const Main = () => {
         xs={12-getCols()} md={12-getCols()} xl={12-getCols()}
         className={classes.item4}
       >
-        <Table />
+        <POList />
       </Grid>
     </Grid>
   );
