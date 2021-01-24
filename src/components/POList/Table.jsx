@@ -91,8 +91,8 @@ export default function EnhancedTable() {
     if (denomenator === 0) return "#ed979a";
 
     const calcValue = numerator / denomenator;
-    if (calcValue >= 9 / 10) return "#a4f3a3";
-    else if (calcValue >= 5 / 10) return "#edc984";
+    if (calcValue <= 9 / 10 && calcValue>=5/10) return "#a4f3a3";
+    else if (calcValue >= 5 / 10 && calcValue <= 1/10) return "#edc984";
     else if (calcValue >= 1 / 10) return "#ed979a";
     else return "inherit";
   };
