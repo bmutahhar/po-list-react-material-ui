@@ -114,6 +114,12 @@ const Row = styled.div`
   width: ${(props) => props.width};
   background-color: ${(props) => props.backgroundColor};
   margin-bottom: ${(props) => props.marginBottom};
+  @media (min-width: 1920px){
+    height:10%;
+  }
+  
+ 
+  }
 `;
 
 const ButtonContainer = styled.div`
@@ -132,11 +138,17 @@ height:35%;
 background-color:#a4f0a4;
 border-radius:25px;
 border: 1px solid black
-${'' /* margin:10px; */}
 cursor:pointer;
 display:flex;
 align-items:center;
 justify-content:center;
+@media (min-width: 1920px){
+    font-size:20px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px){
+    font-size:10px;
+  }
 
 `;
 
@@ -146,4 +158,13 @@ const SearchBarContainer = styled.div`
   width: 70%;
   align-items: center;
   justify-content: flex-end;
+  @media (min-width: 1920px){
+    justify-content: center;
+    padding-right:30px;
+  }
+
+  @media (min-width: 1280px) and (max-width: 1919px){
+    justify-content: flex-end;
+    padding-right:30px;
+  }
 `;

@@ -43,7 +43,7 @@ const Searchbar = () => {
 
 export default Searchbar;
 
-const InputTextField = withStyles({
+const InputTextField = withStyles(theme=>({
   root: {
     backgroundColor: "#fff",
     width: 400,
@@ -74,6 +74,12 @@ const InputTextField = withStyles({
         color: "#000",
         borderColor: "#000",
       },
+      [theme.breakpoints.up("xl")]:{
+        width:600,
+        backgroundColor: "#fff",
+        height: 50,
+        borderRadius: "50px",
+      }
     },
   },
-})(TextField);
+}))(TextField);
