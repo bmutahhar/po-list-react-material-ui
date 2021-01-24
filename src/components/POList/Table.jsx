@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import {  makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -76,9 +76,6 @@ export default function EnhancedTable() {
   };
 
   const handleCopyClick = (index, row) => {
-    console.log(index);
-    console.log(row);
-    // setRows([...rows.slice(0, index).concat(row).concat(rows.slice(index + 1))]);
     let newRows = rows.slice(0);
     newRows.splice(rows, 0, row);
     setRows(newRows);
@@ -88,9 +85,19 @@ export default function EnhancedTable() {
     setPage(newPage);
   };
 
+  const handleColorChange = (cellValue) => {
+    const numerator = parseInt(cellValue.split("/")[0]);
+    const denomenator = parseInt(cellValue.split("/")[1]);
+    if (denomenator === 0) return "#ed979a";
 
-  const emptyRows =
-    5 - Math.min(5, rows.length - page * 5);
+    const calcValue = numerator / denomenator;
+    if (calcValue >= 9 / 10) return "#a4f3a3";
+    else if (calcValue >= 5 / 10) return "#edc984";
+    else if (calcValue >= 1 / 10) return "#ed979a";
+    else return "inherit";
+  };
+
+  const emptyRows = 5 - Math.min(5, rows.length - page * 5);
 
   return (
     <div className={classes.root}>
@@ -112,9 +119,8 @@ export default function EnhancedTable() {
             {stableSort(rows, getComparator(order, orderBy))
               .slice(page * 5, page * 5 + 5)
               .map((row, index) => {
-
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.name}>
+                  <TableRow hover role="checkbox" tabIndex={-1} key={index}>
                     <TableCell
                       align="center"
                       width="2%"
@@ -154,7 +160,7 @@ export default function EnhancedTable() {
                       align="center"
                       width="5%"
                       className={classes.cellItems}
-                      style={{ padding: 10 }}
+                      style={{ fontSize: 18 }}
                     >
                       {row.tar}
                     </TableCell>
@@ -165,7 +171,7 @@ export default function EnhancedTable() {
                         fontSize: 18,
                         fontWeight: "bold",
                         padding: 10,
-                        background: "green",
+                        background: handleColorChange(row.tr),
                       }}
                     >
                       {row.tr}
@@ -181,7 +187,7 @@ export default function EnhancedTable() {
                 );
               })}
             {emptyRows > 0 && (
-              <TableRow style={{ height:  53 * emptyRows }}>
+              <TableRow style={{ height: 53 * emptyRows }}>
                 <TableCell colSpan={6} />
               </TableRow>
             )}
@@ -265,12 +271,7 @@ const headCells = [
 ];
 
 function EnhancedTableHead(props) {
-  const {
-    classes,
-    order,
-    orderBy,
-    onRequestSort,
-  } = props;
+  const { classes, order, orderBy, onRequestSort } = props;
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
   };
@@ -331,10 +332,12 @@ EnhancedTableHead.propTypes = {
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
-    backgroundColor: "white",
+    backgroundColor: "inherit",
   },
 
-  table: {},
+  table: {
+    backgroundColor: "inherit",
+  },
   visuallyHidden: {
     border: 0,
     clip: "rect(0 0 0 0)",

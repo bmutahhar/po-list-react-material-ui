@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "10px",
   },
   item: {
-    backgroundColor: "pink",
+    // backgroundColor: "pink",
   },
   icons: {
     fontSize: "28px",
@@ -60,7 +60,6 @@ const POList = () => {
       <Row
         width="100%"
         height="8%"
-        backgroundColor="yellow"
         justify="space-between"
       >
         {/* <span className={classes.grow}/> */}
@@ -78,7 +77,7 @@ const POList = () => {
           </IconButton>
         </div>
       </Row>
-      <Row width="100%" height="15%" backgroundColor="orange" justify="center">
+      <Row width="100%" height="15%" justify="center">
         <SearchBarContainer>
           <SearchBar />
         </SearchBarContainer>
@@ -96,7 +95,7 @@ export default POList;
 
 const Container = styled.div`
   display: flex;
-  background-color: green;
+  background-color: #feedd1;
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
@@ -135,6 +134,9 @@ border-radius:25px;
 border: 1px solid black
 ${'' /* margin:10px; */}
 cursor:pointer;
+display:flex;
+align-items:center;
+justify-content:center;
 
 `;
 

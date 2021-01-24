@@ -97,7 +97,6 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.up("xl")]: {
       height: "auto",
-      backgroundColor: "green",
     },
     [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
@@ -117,7 +116,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ToolsAndUserName = ({ display }) => {
-  console.log(display);
   const classes = useStyles();
   return (
     <Paper square elevation={0} className={clsx(classes.hide, display)}>

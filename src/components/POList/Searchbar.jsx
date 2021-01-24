@@ -45,7 +45,7 @@ export default Searchbar;
 
 const InputTextField = withStyles({
   root: {
-    backgroundColor: "#eee",
+    backgroundColor: "#fff",
     width: 400,
     height: 40,
     borderRadius: "50px",

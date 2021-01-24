@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     [theme.breakpoints.up("xl")]:{
       height:"auto",
-      backgroundColor:"green",
     },
     [theme.breakpoints.down("sm")]:{
       flexDirection:"column",
