@@ -53,10 +53,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const POList = () => {
+const POList = ({open}) => {
   const classes = useStyles();
   return (
-    <Container>
+    <Container open={open}>
       <Row
         width="100%"
         height="8%"
@@ -99,11 +99,12 @@ const Container = styled.div`
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  width: 90%;
+  width: 95%;
   height: 95%;
   border: 1px solid black;
   border-radius: 10px;
   overflow: hidden;
+  margin-left: ${(props) => !props.open? "10px":"0px"};
 `;
 
 const Row = styled.div`

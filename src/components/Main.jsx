@@ -5,6 +5,7 @@ import React, { useState, useLayoutEffect } from "react";
 import { TopLeft, TopRight } from "./Navbar/NavbarElements";
 import Sidebar from "./Sidebar/Sidebar";
 import POList from "./POList/POList";
+import clsx from "clsx";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,7 +27,16 @@ const useStyles = makeStyles((theme) => ({
   },
   item4: {
     height: "90%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
+  open:{
+    justifyContent: "flex-start",
+  },
+  sidebarMargin:{
+    marginRight:10,
+  }
 }));
 
 const Main = () => {
@@ -87,7 +97,9 @@ const Main = () => {
         alignItems="center"
         justify="center"
         xs={12-getCols()} md={12-getCols()} xl={12-getCols()}
-        className={classes.item4}
+        className={clsx(classes.item4,{
+        [classes.open]:!open
+      })}
       >
         <POList />
       </Grid>

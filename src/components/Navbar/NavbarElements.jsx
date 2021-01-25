@@ -42,6 +42,21 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "68px",
     },
   },
+  username: {
+    fontSize: "18px",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "16px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "14px",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "12px",
+    },
+    [theme.breakpoints.up("xl")]: {
+      fontSize: "40px",
+    },
+  },
   grid: {
     display: "flex",
     justifyContent: "flex-end",
@@ -84,9 +99,12 @@ export const TopRight = () => {
         borderBottom: "5px solid #3fa33f",
         display: "flex",
         justifyContent: "flex-end",
-        height:"100%",
+        height: "100%",
       }}
     >
+      <Typography variant="h6" className={classes.username}>
+        Hi Username!
+      </Typography>
       <IconButton>
         <PersonOutlineIcon
           className={classes.icons}

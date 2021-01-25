@@ -11,9 +11,10 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     alignItems: "flex-end",
-    justifyContent: "center",
+    justifyContent: "space-evenly",
     borderRight: "1px solid #38414a",
     height: 50,
+    padding: "0px 5px 0px 5px",
     width: "100%",
     [theme.breakpoints.up("xl")]: {
       height: "auto",
@@ -26,12 +27,14 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   badge: {
-    width: "30%",
+    width: "32%",
     height: "50%",
     marginBottom: 8,
+    marginRight:2,
+    borderRadius: "5px",
     padding: 0,
     [theme.breakpoints.up("xl")]: {
-      marginBottom: 5,
+      marginBottom: 3,
     },
 
     [theme.breakpoints.up("md")]: {
@@ -47,7 +50,6 @@ const useStyles = makeStyles((theme) => ({
       padding: 0,
       margin: 0,
     },
-
   },
 }));
 
@@ -86,14 +88,15 @@ const Tab = styled.button`
   height: 50%;
   background-color: #626262;
   color: #eee;
-  padding: 15px;
+  padding: 15px 25px 15px 20px;
   margin: 2px;
-  margin-bottom: -2px;
+  margin-bottom: -1px;
   font-size: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  border: 1px solid black;
   border-radius: 5px;
   border-top-right-radius: 40px 30px;
   &:active {
@@ -105,18 +108,27 @@ const Tab = styled.button`
     background-color: #38414a;
     outline: none;
   }
+
+  @media (min-width:1920px){
+    font-size: 20px;
+  }
+
+  @media (max-width: 1280px) and (min-width: 1024px) {
+    font-size: 12px;
+  }
+
+  @media (max-width: 960px) and (min-width: 768px) {
+    width: 50%;
+    height: 20%;
+  }
+
   @media (max-width: 768px) {
-    width: 80%;
+    width: 50%;
     height: 20%;
   }
 
   @media (max-width: 1024px) {
     font-size: 12px;
-  }
-
-  @media (min-width: 768px) and (max-width: 1024px) {
-    width: 50%;
-    height: 20%;
   }
 `;
 
@@ -126,13 +138,14 @@ const BadgeTab = styled.button`
   height: 30%;
   color: #eee;
   font-size: 14px;
-  padding: 15px;
+  padding: 15px 25px 15px 20px;
   margin: 2px;
-  margin-bottom: -2px;
+  margin-bottom: 0px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  border: 1px solid black;
   border-radius: 5px;
   border-top-right-radius: 40px 30px;
   &:active {
@@ -144,7 +157,17 @@ const BadgeTab = styled.button`
     background-color: #38414a;
     outline: none;
   }
-  
+  @media (min-width:1920px){
+    font-size: 20px;
+  }
+
+  @media (max-width: 1280px) and (min-width: 1024px) {
+    font-size: 12px;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 12px;
+  }
 `;
 
 export default Tabs;

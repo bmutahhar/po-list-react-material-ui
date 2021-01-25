@@ -278,6 +278,7 @@ export default function MiniDrawer({
           onClick={(event) => {
             handleDrawerOpen();
             handleListItemClick(event, 4);
+            handleAdminClick();
           }}
           selected={selectedIndex === 4}
         >
@@ -318,6 +319,7 @@ export default function MiniDrawer({
           onClick={(event) => {
             handleDrawerOpen();
             handleListItemClick(event, 5);
+            handleHelpClick();
           }}
           selected={selectedIndex === 5}
         >
